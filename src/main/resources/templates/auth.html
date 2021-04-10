@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Auth to aBay</title>
+</head>
+<body>
+<div th:include="_header"></div>
+<div class="container" style="text-align: -webkit-center">
+    <div th:if="${error}" style="color: red">
+        Invalid username and password.
+    </div>
+    <div th:if="${logout}">
+        You have been logged out.
+    </div>
+
+    <form th:action="@{/user/auth}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="username">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

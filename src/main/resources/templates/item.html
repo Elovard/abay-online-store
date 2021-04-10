@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="_header"></header>
+<div th:object="${item}">
+    <br>
+    <p th:text="${item.itemName}" style="padding-left: 10px"></p>
+    <br>
+    <img th:src="${item.picLink}" height="250" width="250">
+    <br>
+    <p th:text="${item.itemDesc}" style="padding-left: 10px"></p>
+    <p th:text="${item.itemPrice} + '$'" style="padding-left: 10px"></p>
+    <p style="padding-left: 10px">Category</p>
+</div>
+<form action="/cart" method="post">
+    <input type="hidden" th:value="${item.itemId}">
+    <button>Add To Cart</button>
+</form>
+</body>
+</html>

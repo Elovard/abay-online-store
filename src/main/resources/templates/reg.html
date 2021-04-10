@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reg to aBay</title>
+</head>
+<body>
+<div th:include="_header"></div>
+<div class="container" style="text-align: -webkit-center">
+    <form th:action="@{/user/reg}" th:object="${userForm}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" th:field="*{username}">
+            <p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+            <p style="color: red" th:text="${userExistsError}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" th:field="*{password}" aria-describedby="passHelp">
+            <p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+            <div id="passHelp" class="form-text">At least 3 symbols</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>
