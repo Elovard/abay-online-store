@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+<div th:include="_header"></div>
+<p>Add Item:</p>
+<form th:action="@{/admin/add}" th:object="${newItem}">
+    <input type="number" th:field="${newItem.itemId}" placeholder="id">
+    <input type="text" th:field="${newItem.itemName}" placeholder="name">
+    <input type="text" th:field="${newItem.itemDesc}" placeholder="description">
+    <input type="number" th:field="${newItem.itemPrice}" placeholder="price">
+    <input type="text" th:field="${newItem.picLink}" placeholder="picture">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>
