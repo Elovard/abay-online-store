@@ -4,10 +4,7 @@ import by.tms.abayonlinestore.entity.Item;
 import by.tms.abayonlinestore.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -18,7 +15,7 @@ public class AdminPanelController {
     @Autowired
     private ItemService itemService;
 
-    @GetMapping("/add")
+    @GetMapping
     public ModelAndView getAdminPanel(ModelAndView modelAndView){
         modelAndView.addObject("newItem", new Item());
         modelAndView.setViewName("admin");
@@ -34,6 +31,17 @@ public class AdminPanelController {
         item.setItemPrice(newItem.getItemPrice());
         item.setPicLink(newItem.getPicLink());
         itemService.addItem(item);
+        modelAndView.setViewName("admin");
+        return modelAndView;
+    }
+
+    @PostMapping("/remove")
+    public ModelAndView removeItemByAdmin(long itemId, ModelAndView modelAndView){
+        if(itemService.isItemExistsById(itemId)){
+            itemService.removeItemById(itemId);
+        } else {
+            modelAndView.addObject("itemIsNotExist", "Can't find item with this id!");
+        }
         modelAndView.setViewName("admin");
         return modelAndView;
     }

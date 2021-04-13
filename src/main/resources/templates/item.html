@@ -18,7 +18,7 @@
     <p style="padding-left: 10px">Category</p>
 </div>
 <form action="/cart" method="post">
-    <input type="hidden" th:value="${item.itemId}">
+    <input type="hidden" id="itemId" th:value="${itemId}">
     <button class="btn btn-primary">Add To Cart</button>
 </form>
 </body>

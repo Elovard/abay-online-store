@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<header th:insert="_header"></header>
+<a>Your cart:</a>
+
+<div class="container">
+    <div th:if="${not #lists.isEmpty(cartItems)}">
+            <tr th:each="item : ${cartItems}">
+                <div class="card-body">
+                    <h5 th:text="${item.itemName}"></h5>
+                    <p th:text="${item.itemPrice} + '$'"></p>
+                </div>
+        </div>
+</div>
+
+<p th:text="${cartIsEmpty}"></p>
+</body>
+</html>

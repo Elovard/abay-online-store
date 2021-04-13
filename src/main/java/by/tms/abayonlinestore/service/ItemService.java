@@ -25,5 +25,16 @@ public class ItemService {
         return itemRepository.findItemByItemId(itemId);
     }
 
+    public void removeItemById(long itemId){
+        itemRepository.deleteItemByItemId(itemId);
+    }
+
+    public boolean isItemExistsById(long itemId){
+        if (itemRepository.existsByItemId(itemId)){
+            return true;
+        } else{
+            return false;
+        }
+    }
 
 }

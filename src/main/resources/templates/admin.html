@@ -7,7 +7,7 @@
 <body>
 <div th:include="_header"></div>
 <p>Add Item:</p>
-<form th:action="@{/admin/add}" th:object="${newItem}">
+<form th:action="@{/admin/add}" th:object="${newItem}" method="post">
     <input type="number" th:field="${newItem.itemId}" placeholder="id">
     <input type="text" th:field="${newItem.itemName}" placeholder="name">
     <input type="text" th:field="${newItem.itemDesc}" placeholder="description">
@@ -15,5 +15,11 @@
     <input type="text" th:field="${newItem.picLink}" placeholder="picture url">
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<p>Remove Item: -DOESN'T WORK YET-</p>
+<form th:action="@{/admin/remove}" method="post">
+    <input type="number" th:id="itemId" placeholder="id">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<p th:text="${itemIsNotExist}" style="color: red"></p>
 </body>
 </html>

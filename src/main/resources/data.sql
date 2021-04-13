@@ -1,3 +1,6 @@
+insert into users (username, password) values ('admin', '$2y$10$eVSnMBVnhu2FqA1tqCQnMuuqEOSr1Oo7a777Xtiht3tr8kjyInWi2');
+insert into user_role (user_id, roles) values (1, 'ROLE_ADMIN');
+
 INSERT INTO items VALUES ( default, 'Brand new mobile phone for fair price', 'Mobile Phone', 49.99,
                            'https://im0-tub-by.yandex.net/i?id=d0ae8f1c3cc9e4b6058ffd933aefe058&n=13');
 

@@ -1,23 +1,24 @@
 package by.tms.abayonlinestore.entity;
 
-import by.tms.abayonlinestore.repository.CartRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Data
 public class Cart {
 
-
-    @Autowired
-    private CartRepository cartRepository;
+    private List<Item> cartItems = new ArrayList<>();
 
     public void addItemToCart(Item item){
-        cartRepository.save(item);
+        cartItems.add(item);
     }
 
-    public List<Item> getAllCartItems(){
-        return cartRepository.findAll();
+    public void removeItemFromCart(Item item){
+        cartItems.remove(item);
+    }
+
+    public List<Item> getAllItems(){
+        return new ArrayList<>(cartItems);
     }
 }
