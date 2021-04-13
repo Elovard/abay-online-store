@@ -30,11 +30,11 @@ public class CartController {
     }
 
     @PostMapping
-    public ModelAndView cartAction(long itemId, ModelAndView modelAndView, HttpSession httpSession){
-        Item byId = itemService.findItemById(itemId);
+    public ModelAndView cartAction(Long id, ModelAndView modelAndView, HttpSession httpSession){
+        Item byId = itemService.findItemById(id);
         Cart cart = (Cart)httpSession.getAttribute("cart");
         cart.addItemToCart(byId);
-        modelAndView.setViewName("redirect:/item/view/" + itemId);
+        modelAndView.setViewName("redirect:/item/view/" + id);
         return modelAndView;
     }
 

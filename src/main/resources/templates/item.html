@@ -3,7 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Item View</title>
 </head>
 <body>
 <header th:insert="_header"></header>
@@ -17,8 +17,8 @@
     <p th:text="${item.itemPrice} + '$'" style="padding-left: 10px"></p>
     <p style="padding-left: 10px">Category</p>
 </div>
-<form action="/cart" method="post">
-    <input type="hidden" id="itemId" th:value="${itemId}">
+<form th:action="@{/cart}" method="post">
+    <input type="hidden" th:value="${id}">
     <button class="btn btn-primary">Add To Cart</button>
 </form>
 </body>
