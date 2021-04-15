@@ -21,4 +21,8 @@ public class Cart {
     public List<Item> getAllItems(){
         return new ArrayList<>(cartItems);
     }
+
+    public void removeAllItems(){
+        cartItems.clear();
+    }
 }

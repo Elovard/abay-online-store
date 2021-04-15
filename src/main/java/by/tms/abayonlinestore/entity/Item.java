@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -16,7 +18,7 @@ import javax.persistence.*;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long itemId;
+    private Long itemId;
 
     private String itemName;
     private String itemDesc;
@@ -24,8 +26,12 @@ public class Item {
 
     private String picLink;
 
-//    @ElementCollection
-//    @LazyCollection(value = LazyCollectionOption.FALSE)
-//    private List<ItemCategory> itemCategoryList;
+    @Enumerated(EnumType.STRING)
+    private ItemCategory itemCategory;
+
+//    @ElementCollection(targetClass = ItemCategory.class, fetch = FetchType.EAGER)
+//    @CollectionTable(name = "item_category", joinColumns = @JoinColumn(name = "items"))
+//    @Enumerated(EnumType.STRING)
+//    private Set<ItemCategory> itemCategoryList;
 
 }

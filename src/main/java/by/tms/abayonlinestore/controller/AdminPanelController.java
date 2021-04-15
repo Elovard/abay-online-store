@@ -29,6 +29,7 @@ public class AdminPanelController {
         item.setItemName(newItem.getItemName());
         item.setItemDesc(newItem.getItemDesc());
         item.setItemPrice(newItem.getItemPrice());
+        item.setItemCategory(newItem.getItemCategory());
         item.setPicLink(newItem.getPicLink());
         itemService.addItem(item);
         modelAndView.setViewName("admin");
@@ -36,7 +37,7 @@ public class AdminPanelController {
     }
 
     @PostMapping("/remove")
-    public ModelAndView removeItemByAdmin(long itemId, ModelAndView modelAndView){
+    public ModelAndView removeItemByAdmin(@RequestParam(value = "itemId", required = false)Long itemId, ModelAndView modelAndView){
         if(itemService.isItemExistsById(itemId)){
             itemService.removeItemById(itemId);
         } else {

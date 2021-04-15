@@ -1,6 +1,7 @@
 package by.tms.abayonlinestore.service;
 
 import by.tms.abayonlinestore.entity.Item;
+import by.tms.abayonlinestore.entity.ItemCategory;
 import by.tms.abayonlinestore.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public class ItemService {
         return itemRepository.findItemByItemId(itemId);
     }
 
+    public Item findItemByName(String itemName){
+        return itemRepository.findItemByItemName(itemName);
+    }
+
     public void removeItemById(long itemId){
         itemRepository.deleteItemByItemId(itemId);
     }
@@ -35,6 +40,14 @@ public class ItemService {
         } else{
             return false;
         }
+    }
+
+    public List<Item> searchItemByCategory(ItemCategory itemCategory){
+      return itemRepository.findItemByItemCategory(itemCategory);
+    }
+
+    public List<Item> searchItemsByName(String itemName){
+        return itemRepository.findItemsByItemName(itemName);
     }
 
 }

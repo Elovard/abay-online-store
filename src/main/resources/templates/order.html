@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+<header th:insert="_header"></header>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(cartItems)}">
+        <h2>List of your Items</h2>
+        <tr th:each="item : ${cartItems}">
+            <div class="card-body">
+                <h5 th:text="${item.itemName}"></h5>
+                <p th:text="${item.itemPrice} + '$'"></p>
+            </div>
+    </div>
+</div>
+
+<div th:if="${#lists.isEmpty(cartItems)}">
+    <p th:text="${cartIsEmpty}"></p>
+    <a th:href="@{/store}">Surf the store!</a>
+</div>
+
+<div th:if="${not #lists.isEmpty(cartItems)}">
+<div class="container" style="text-align: -webkit-center">
+
+    <form th:action="@{/order}" th:object="${newOrder}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Your name</label>
+            <input type="text" class="form-control" th:field="*{orderedBy}">
+            <p style="color: red" th:if="${#fields.hasErrors('orderedBy')}" th:errors="*{orderedBy}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Your phone</label>
+            <input type="text" class="form-control" th:field="*{mobilePhone}">
+            <p style="color: red" th:if="${#fields.hasErrors('mobilePhone')}" th:errors="*{mobilePhone}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Your city</label>
+            <input type="text" class="form-control" th:field="*{city}">
+            <p style="color: red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Your address</label>
+            <input type="text" class="form-control" th:field="*{address}">
+            <p style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Credit Card Number</label>
+            <input type="text" class="form-control" th:field="*{creditCardNumber}">
+            <p style="color: red" th:if="${#fields.hasErrors('creditCardNumber')}" th:errors="*{creditCardNumber}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">CC Expiration Date</label>
+            <input type="text" class="form-control" th:field="*{ccExpiration}">
+            <p style="color: red" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">CC CVV</label>
+            <input type="text" class="form-control" th:field="*{ccExpiration}">
+            <p style="color: red" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}"></p>
+        </div>
+        <p th:text="${errorsInOrder}" style="color: red"></p>
+        <button type="submit" class="btn btn-primary">Place order</button>
+    </form>
+
+</div>
+</div>
+
+</body>
+</html>

@@ -12,12 +12,13 @@
     <input type="text" th:field="${newItem.itemName}" placeholder="name">
     <input type="text" th:field="${newItem.itemDesc}" placeholder="description">
     <input type="number" th:field="${newItem.itemPrice}" placeholder="price">
+    <input type="text" th:field="${newItem.itemCategory}" placeholder="category">
     <input type="text" th:field="${newItem.picLink}" placeholder="picture url">
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<p>Remove Item: -DOESN'T WORK YET-</p>
+<p>Remove Item:</p>
 <form th:action="@{/admin/remove}" method="post">
-    <input type="number" th:id="itemId" placeholder="id">
+    <input type="number" th:name="itemId" th:id="*{itemId}" th:value="${itemId}" placeholder="id">
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <p th:text="${itemIsNotExist}" style="color: red"></p>

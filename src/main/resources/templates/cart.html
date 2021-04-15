@@ -7,18 +7,27 @@
 </head>
 <body>
 <header th:insert="_header"></header>
-<a>Your cart:</a>
 
 <div class="container">
     <div th:if="${not #lists.isEmpty(cartItems)}">
+        <h2>Your cart:</h2>
             <tr th:each="item : ${cartItems}">
-                <div class="card-body">
+                <td><div class="card-body">
                     <h5 th:text="${item.itemName}"></h5>
                     <p th:text="${item.itemPrice} + '$'"></p>
                 </div>
         </div>
 </div>
 
+<div th:if="${#lists.isEmpty(cartItems)}">
+    <br>
 <p th:text="${cartIsEmpty}"></p>
+    <br>
+    <a th:href="@{/store}">Explore the goods!</a>
+</div>
+
+<div th:if="${not #lists.isEmpty(cartItems)}">
+<a th:href="@{/order}">Create Order</a>
+</div>
 </body>
 </html>

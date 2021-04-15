@@ -9,16 +9,16 @@
 <header th:insert="_header"></header>
 <div th:object="${item}">
     <br>
-    <p th:text="${item.itemName}" style="padding-left: 10px"></p>
+    <strong><p th:text="${item.itemName}" style="padding-left: 10px"></p></strong>
     <br>
     <img th:src="${item.picLink}" height="250" width="250">
     <br>
     <p th:text="${item.itemDesc}" style="padding-left: 10px"></p>
     <p th:text="${item.itemPrice} + '$'" style="padding-left: 10px"></p>
-    <p style="padding-left: 10px">Category</p>
+    <p th:text="'Tags: ' + ${item.itemCategory}" style="padding-left: 10px"></p>
 </div>
-<form th:action="@{/cart}" method="post">
-    <input type="hidden" th:value="${id}">
+<form th:action="@{/cart}" method="post" style="padding-left: 10px">
+    <input type="hidden" th:id="*{itemId}" th:name="itemId" th:value="${itemId}">
     <button class="btn btn-primary">Add To Cart</button>
 </form>
 </body>
