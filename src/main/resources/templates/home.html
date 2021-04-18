@@ -6,9 +6,11 @@
 </head>
 <body>
 <header th:insert="_header"></header>
-<h1>Welcome!</h1>
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+<h1 style="padding-left: 30px">Welcome to aBay Store!</h1>
 <br>
-<p>Click <a th:href="@{/user/reg}">here</a> for registration.</p>
+<h4 style="padding-left: 30px">New Here?<a th:href="@{/user/reg}">Registration</a></h4>
+<h4 style="padding-left: 30px">I have account!<a th:href="@{/user/auth}">Sign In</a></h4>
+<br>
+<a th:href="@{/store}" class="btn btn-primary">Let's go on shopping spree!</a>
 </body>
 </html>

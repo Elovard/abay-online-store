@@ -5,6 +5,7 @@ import by.tms.abayonlinestore.entity.ItemCategory;
 import by.tms.abayonlinestore.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,9 +29,10 @@ public class SearchController {
     }
 
     @PostMapping
-    public ModelAndView postSearchByCategoryPage(@RequestParam(value = "itemCategory", required = false)ItemCategory itemCategory,
-                                       ModelAndView modelAndView){
-        List<Item> result = itemService.searchItemByCategory(itemCategory);   // ADD ignoreCASE!!!
+    public ModelAndView postSearchByCategoryPage(@RequestParam(value = "itemCategory", required = false)String itemCategory,
+                                                 ModelAndView modelAndView){
+        String resultInEnum = itemCategory.toUpperCase();
+        List<Item> result = itemService.searchItemByCategory(ItemCategory.valueOf(resultInEnum));
         if(result.isEmpty()){
             modelAndView.addObject("nothingFound", "Nothing has been found!");
         }
@@ -42,6 +44,7 @@ public class SearchController {
     @PostMapping("/name")
     public ModelAndView postSearchByNamePage(@RequestParam(value = "itemName", required = false)String itemName,
                                              ModelAndView modelAndView){
+
         List<Item> result = itemService.searchItemsByName(itemName);
         if(result.isEmpty()){
             modelAndView.addObject("nothingFound", "Nothing has been found!");

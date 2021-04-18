@@ -15,19 +15,28 @@
                 <td><div class="card-body">
                     <h5 th:text="${item.itemName}"></h5>
                     <p th:text="${item.itemPrice} + '$'"></p>
+                    <form th:action="@{/cart/remove}" method="post" style="padding-left: 10px">
+                        <input type="hidden" th:id="*{item.itemId}" th:name="itemId" th:value="${item.itemId}">
+                        <button class="btn btn-primary">Remove</button>
+                    </form>
                 </div>
         </div>
 </div>
 
+<div th:if="${not #lists.isEmpty(cartItems)}">
+<h2 style="padding-left: 30px">Total Price:</h2>
+<p th:text="${totalPrice} + '$'" style="padding-left: 30px"></p>
+</div>
+
 <div th:if="${#lists.isEmpty(cartItems)}">
     <br>
-<p th:text="${cartIsEmpty}"></p>
+<p th:text="${cartIsEmpty}" style="padding-left: 30px"></p>
     <br>
-    <a th:href="@{/store}">Explore the goods!</a>
+    <a th:href="@{/store}" style="padding-left: 30px">Explore the goods!</a>
 </div>
 
 <div th:if="${not #lists.isEmpty(cartItems)}">
-<a th:href="@{/order}">Create Order</a>
+<a th:href="@{/order}" style="padding-left: 30px">Create Order</a>
 </div>
 </body>
 </html>

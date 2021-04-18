@@ -20,6 +20,7 @@ public class CartController {
     @GetMapping
     public ModelAndView getCart(ModelAndView modelAndView, HttpSession httpSession){
         Cart cart = (Cart)httpSession.getAttribute("cart");
+        modelAndView.addObject("totalPrice", cart.getTotalPrice());
         if(!cart.getAllItems().isEmpty()){
             modelAndView.addObject("cartItems", cart.getAllItems());
         } else {
@@ -36,6 +37,16 @@ public class CartController {
         Cart cart = (Cart)httpSession.getAttribute("cart");
         cart.addItemToCart(byId);
         modelAndView.setViewName("redirect:/store/item/view/" + itemId);
+        return modelAndView;
+    }
+
+    @PostMapping("/remove")
+    public ModelAndView removeFromCart(@RequestParam(value = "itemId", required = false)Long itemId,
+                                       ModelAndView modelAndView, HttpSession httpSession){
+        Item removeById = itemService.findItemById(itemId);
+        Cart cart = (Cart)httpSession.getAttribute("cart");
+        cart.removeItemFromCart(removeById);
+        modelAndView.setViewName("redirect:/cart");
         return modelAndView;
     }
 

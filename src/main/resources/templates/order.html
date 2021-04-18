@@ -18,6 +18,11 @@
     </div>
 </div>
 
+<div th:if="${not #lists.isEmpty(cartItems)}">
+    <h2 style="padding-left: 30px">Total Price:</h2>
+    <p th:text="${totalPrice} + '$'" style="padding-left: 30px"></p>
+</div>
+
 <div th:if="${#lists.isEmpty(cartItems)}">
     <p th:text="${cartIsEmpty}"></p>
     <a th:href="@{/store}">Surf the store!</a>
@@ -25,7 +30,7 @@
 
 <div th:if="${not #lists.isEmpty(cartItems)}">
 <div class="container" style="text-align: -webkit-center">
-
+    <p th:text="${errorsInOrder}" style="color: red"></p>
     <form th:action="@{/order}" th:object="${newOrder}" method="post">
         <div class="mb-3">
             <label class="form-label">Your name</label>
@@ -62,7 +67,6 @@
             <input type="text" class="form-control" th:field="*{ccExpiration}">
             <p style="color: red" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}"></p>
         </div>
-        <p th:text="${errorsInOrder}" style="color: red"></p>
         <button type="submit" class="btn btn-primary">Place order</button>
     </form>
 
