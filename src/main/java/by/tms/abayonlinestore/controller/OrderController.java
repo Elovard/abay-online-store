@@ -45,13 +45,13 @@ public class OrderController {
     Logger log;
 
     @PostMapping
-    public ModelAndView postOrderPage(@ModelAttribute("newOrder") @Valid Order newOrder,
+    public ModelAndView postOrderPage(@Valid @ModelAttribute("newOrder")Order newOrder,
                                       BindingResult bindingResult, ModelAndView modelAndView,
                                       HttpSession httpSession) {
-        if(bindingResult.hasErrors()) {
-            modelAndView.setViewName("order");
-            return modelAndView;
-        } else {
+//        if(bindingResult.hasErrors()) {
+//            modelAndView.setViewName("redirect:/order");
+//            return modelAndView;
+//        } else {
             Order order = new Order();
             order.setOrderedBy(newOrder.getOrderedBy());
             order.setMobilePhone(newOrder.getMobilePhone());
@@ -69,7 +69,7 @@ public class OrderController {
             modelAndView.setViewName("redirect:/order/success");
             return modelAndView;
         }
-    }
+
 
 
     @GetMapping("/success")

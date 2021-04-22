@@ -30,12 +30,11 @@
 
 <div th:if="${not #lists.isEmpty(cartItems)}">
 <div class="container" style="text-align: -webkit-center">
-    <p th:text="${errorsInOrder}" style="color: red"></p>
     <form th:action="@{/order}" th:object="${newOrder}" method="post">
         <div class="mb-3">
             <label class="form-label">Your name</label>
             <input type="text" class="form-control" th:field="*{orderedBy}">
-            <p style="color: red" th:if="${#fields.hasErrors('orderedBy')}" th:errors="*{orderedBy}"></p>
+            <p style="color: red" th:if="${#fields.hasErrors('orderedBy')}" th:errors="*{orderedBy}">Error</p>
         </div>
         <div class="mb-3">
             <label class="form-label">Your phone</label>
@@ -69,6 +68,61 @@
         </div>
         <button type="submit" class="btn btn-primary">Place order</button>
     </form>
+
+<!--    <div class="column">-->
+<!--        <form th:action="@{/order}" th:object="${newOrder}" method="post">-->
+<!--            <table>-->
+<!--                <tr>-->
+<!--                    <td>Name:</td>-->
+<!--                    <td><input type="text" th:field="*{orderedBy}"></td>-->
+<!--                    <td th:if="${#fields.hasErrors('orderedBy')}" th:errors="*{orderedBy}">Name-->
+<!--                        Error</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Phone:</td>-->
+<!--                    <td><input type="text" th:field="*{mobilePhone}"></td>-->
+<!--                    <td th:if="${#fields.hasErrors('mobilePhone')}" th:errors="*{mobilePhone}">Mobile Phone-->
+<!--                        Error</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>City:</td>-->
+<!--                    <td><input type="text" th:field="*{city}"></td>-->
+<!--                    <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City Error-->
+<!--                        </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Address:</td>-->
+<!--                    <td><input type="text" th:field="*{address}"></td>-->
+<!--                    <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">address error-->
+<!--                        </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Credit Card Number:</td>-->
+<!--                    <td><input type="text" th:field="*{creditCardNumber}"></td>-->
+<!--                    <td th:if="${#fields.hasErrors('creditCardNumber')}" th:errors="*{creditCardNumber}">Card-->
+<!--                        Error</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>CC Expiration Date:</td>-->
+<!--                    <td><input type="text" th:field="*{ccExpiration}"></td>-->
+<!--                    <td th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}">CC exp error-->
+<!--                        </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>CC CVV:</td>-->
+<!--                    <td><input type="text" th:field="*{ccCVV}"></td>-->
+<!--                    <td th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccCVV}">ccCVV error-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </table>-->
+<!--        </form>-->
+
+<!--    </div>-->
 
 </div>
 </div>

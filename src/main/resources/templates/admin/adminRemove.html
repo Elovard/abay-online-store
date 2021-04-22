@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove Item</title>
+</head>
+<body>
+<div th:include="_header"></div>
+<p>Remove Item:</p>
+<form th:action="@{/admin/remove}" method="post">
+    <input type="number" th:name="itemId" th:id="*{itemId}" th:value="${itemId}" placeholder="id">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<p th:text="${itemIsNotExist}" style="color: red"></p>
+<p th:text="${itemRemoved}" style="color: green"></p>
+</body>
+</html>

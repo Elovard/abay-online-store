@@ -6,9 +6,8 @@
 </head>
 <body>
 <div th:include="_header"></div>
-<p>Add Item:</p>
+<h3 style="padding-left: 30px">Add Item:</h3>
 <form th:action="@{/admin/add}" th:object="${newItem}" method="post">
-    <input type="number" th:field="${newItem.itemId}" placeholder="id">
     <input type="text" th:field="${newItem.itemName}" placeholder="name">
     <input type="text" th:field="${newItem.itemDesc}" placeholder="description">
     <input type="number" th:field="${newItem.itemPrice}" placeholder="price">
@@ -16,11 +15,12 @@
     <input type="text" th:field="${newItem.picLink}" placeholder="picture url">
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<p>Remove Item:</p>
-<form th:action="@{/admin/remove}" method="post">
-    <input type="number" th:name="itemId" th:id="*{itemId}" th:value="${itemId}" placeholder="id">
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<p th:text="${itemIsNotExist}" style="color: red"></p>
+<p th:text="${cantAdd}" style="color: red"></p>
+<br>
+<p th:text="${addedItem}" style="color: green"></p>
+<br>
+<h3><a href="/admin/remove" style="padding-left: 30px">Remove Item here</a></h3>
+<br>
+<h3><a href="/admin/users" style="padding-left: 30px">List of Customers</a></h3>
 </body>
 </html>

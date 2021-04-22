@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Customers</title>
+</head>
+<body>
+<div th:include="_header"></div>
+<h3 style="padding-left: 30px">Customers:</h3>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(users)}">
+            <ol>
+                <li th:each="user : ${users}"><p th:text="${user.getUsername()}"></p></li>
+                </ol>
+                </div>
+        </div>
+</div>
+</body>
+</html>

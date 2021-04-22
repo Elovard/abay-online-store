@@ -15,3 +15,18 @@ values ( default, 'Full edition of the world of warcraft', 'Warcraft: Chronicle'
 
 insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
 values ( default, 'Enjoy outdoor activities with this amazing toy (camera is included)', 'Quadrocopter XR-12', 56.99, 'https://images.by.prom.st/196138105_w640_h640_kvadrokopter-smart-drone.jpg', 'TOY' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'World-known bestseller by J.K Rowling is available to order now!', 'Harry Potter Book Collection', 29.99, 'https://cdn1.ozone.ru/multimedia/1003597768.jpg', 'BOOKS' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'A unique tea for relaxation.', 'Puer Tea', 27.99, 'http://img.alibaba.com/img/pb/675/582/806/806582675_349.jpg', 'FOOD' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Super fast and agile toy for boys and men!', 'RC Car Zed-100', 49.99, 'https://hobbypark.by/upload/iblock/9a5/wl-toys-12404.jpg', 'TOY' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'A must for every cold winter and alpinism', 'Ice Ax', 35.99, 'https://robinzon.by/upload/iblock/8be/ledorub_singingrock_edge_54_sm.jpg', 'INSTRUMENTS' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Perfect gaming headset for virtual battles', 'Headphones XYZ-99', 23.99, 'https://shop.by/images/oklick_hs_l500g_toxic_1.jpg', 'ELECTRONIC' )
