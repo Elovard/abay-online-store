@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Orders</title>
+</head>
+<body>
+<div th:include="_header"></div>
+<h3>List of Orders:</h3>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(orders)}">
+        <table border="1" cellspacing="1">
+            <tr><th>OrderID</th>
+                <th>Ordered By</th>
+                <th>Mobile Phone</th>
+                <th>Date</th>
+                <th>Order Status</th></tr>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.orderId}"></td>
+                <td th:text="${order.orderedBy}"></td>
+                <td th:text="${order.mobilePhone}"></td>
+                <td th:text="${order.createdAt}"></td>
+                <td th:text="${order.orderStatus}"></td>
+                <td><form th:action="@{orders}" method="post" style="padding-left: 10px">
+                    <input type="hidden" th:id="*{order.orderId}" th:name="orderId" th:value="${order.orderId}">
+                    <button class="btn btn-primary">Mark as Completed</button>
+                </form></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+</html>

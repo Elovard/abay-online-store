@@ -15,7 +15,13 @@
     <br>
     <p th:text="${item.itemDesc}" style="padding-left: 10px"></p>
     <p th:text="${item.itemPrice} + '$'" style="padding-left: 10px"></p>
-    <p th:text="'Tags: ' + ${item.itemCategory}" style="padding-left: 10px"></p>
+    <p th:text="'Tags: '" style="padding-left: 10px"></p>
+    <form th:action="@{/search}" method="post" style="padding-left: 30px">
+        <input type="hidden" th:name="itemCategory" th:id="${item.itemCategory}" th:value="${item.itemCategory}">
+<!--        <p th:text="${item.itemCategory}" onclick="this.form.submit()"></p>-->
+        <button type="submit"><p th:text="${item.itemCategory}"></p></button>
+    </form>
+    <br>
 </div>
 <form th:action="@{/cart}" method="post" style="padding-left: 10px">
     <input type="hidden" th:id="*{itemId}" th:name="itemId" th:value="${itemId}">

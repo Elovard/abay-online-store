@@ -1,13 +1,18 @@
 package by.tms.abayonlinestore.controller;
 
 import by.tms.abayonlinestore.entity.Item;
+import by.tms.abayonlinestore.entity.Order;
+import by.tms.abayonlinestore.entity.OrderStatus;
 import by.tms.abayonlinestore.service.ItemService;
+import by.tms.abayonlinestore.service.OrderService;
 import by.tms.abayonlinestore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
 
 
 @Controller
@@ -19,6 +24,9 @@ public class AdminPanelController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping
     public ModelAndView getAdminPanel(ModelAndView modelAndView){
@@ -70,6 +78,22 @@ public class AdminPanelController {
     public ModelAndView getUsersPage(ModelAndView modelAndView){
         modelAndView.setViewName("admin/adminCustomers");
         modelAndView.addObject("users", userService.allUsers());
+        return modelAndView;
+    }
+
+    @GetMapping("/orders")
+    public ModelAndView getOrdersPage(ModelAndView modelAndView){
+        modelAndView.addObject("orders", orderService.getAllOrders());
+        modelAndView.setViewName("admin/adminOrders");
+        return modelAndView;
+    }
+
+    @PostMapping("/orders")
+    public ModelAndView changeOrderStatus(@RequestParam(value = "orderId", required = false)Long orderId,
+                                                      ModelAndView modelAndView){
+        Order byId = orderService.findById(orderId);
+        byId.setOrderStatus(OrderStatus.DELIVERED);
+        modelAndView.setViewName("admin/adminOrders");
         return modelAndView;
     }
 }

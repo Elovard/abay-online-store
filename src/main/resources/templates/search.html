@@ -13,15 +13,15 @@
     <input type="text" th:name="itemCategory">
     <button type="submit">Search</button>
 </form>
+<h2 th:text="${nothingFound}" style="color: red"></h2>
 <br>
 <p>Search by Name</p>
 <form th:action="@{/search/name}" method="post">
     <input type="text" th:name="itemName">
     <button type="submit">Search</button>
 </form>
-
-<h2 th:text="${nothingFound}" style="color: red"></h2>
-
+<h2 th:text="${nothingFoundByName}" style="color: red"></h2>
+<br>
 <div class="container">
     <div th:if="${not #lists.isEmpty(result)}">
         <div class="card" style="width: 18rem;">
