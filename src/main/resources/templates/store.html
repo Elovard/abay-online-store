@@ -7,12 +7,13 @@
 </head>
 <body>
 <header th:insert="_header"></header>
-<p><h2>Today we have in stock...</h2></p>
+<p><h1 style="text-align:center;">Today we have in stock...</h1></p>
 <div class="container">
     <div th:if="${not #lists.isEmpty(items)}">
-        <div class="card" style="width: 18rem;">
-            <tr th:each="item : ${items}">
-                <img th:src="${item.picLink}" class="card-img-top" alt="...">
+        <tr th:each="item : ${items}">
+        <div class="card" style="width: 18rem; text-align:center; display:inline-block;">
+                <img th:src="${item.picLink}" class="card-img-top" alt="..." height="300" width="300">
+            <br>
                 <div class="card-body">
                     <h5 class="card-title" th:text="${item.itemName}"></h5>
                     <p class="card-text" th:text="${item.itemDesc}"></p>
@@ -21,8 +22,8 @@
                     <br>
                 </div>
                 <br>
+        </div>
     </div>
-</div>
 </div>
 </body>
 </html>

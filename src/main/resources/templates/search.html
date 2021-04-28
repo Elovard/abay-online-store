@@ -24,8 +24,8 @@
 <br>
 <div class="container">
     <div th:if="${not #lists.isEmpty(result)}">
-        <div class="card" style="width: 18rem;">
-            <tr th:each="item : ${result}">
+        <tr th:each="item : ${result}">
+        <div class="card" style="width: 18rem; text-align:center; display:inline-block;">
                 <img th:src="${item.picLink}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${item.itemName}"></h5>

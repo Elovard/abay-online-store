@@ -19,17 +19,14 @@ public class Item {
     private Long itemId;
 
     private String itemName;
+
     private String itemDesc;
+
     private float itemPrice;
 
     private String picLink;
 
     @Enumerated(EnumType.STRING)
     private ItemCategory itemCategory;
-
-//    @ElementCollection(targetClass = ItemCategory.class, fetch = FetchType.EAGER)
-//    @CollectionTable(name = "item_category", joinColumns = @JoinColumn(name = "items"))
-//    @Enumerated(EnumType.STRING)
-//    private Set<ItemCategory> itemCategoryList;
 
 }

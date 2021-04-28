@@ -15,7 +15,10 @@
     <description>Online store by Andrey &apos;Elovard&apos;</description>
     <properties>
         <java.version>1.8</java.version>
+        <hibernate.version>5.4.30.Final</hibernate.version>
+        <elasticsearch.version>7.10.0</elasticsearch.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
