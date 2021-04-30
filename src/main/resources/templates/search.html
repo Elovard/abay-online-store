@@ -13,19 +13,11 @@
     <input type="text" th:name="itemCategory">
     <button type="submit">Search</button>
 </form>
-<h2 th:text="${nothingFound}" style="color: red"></h2>
-<br>
-<p>Search by Name</p>
-<form th:action="@{/search/name}" method="post">
-    <input type="text" th:name="itemName">
-    <button type="submit">Search</button>
-</form>
-<h2 th:text="${nothingFoundByName}" style="color: red"></h2>
 <br>
 <div class="container">
     <div th:if="${not #lists.isEmpty(result)}">
         <tr th:each="item : ${result}">
-        <div class="card" style="width: 18rem; text-align:center; display:inline-block;">
+            <div class="card" style="width: 18rem; text-align:center; display:inline-block;">
                 <img th:src="${item.picLink}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${item.itemName}"></h5>
@@ -35,8 +27,36 @@
                     <br>
                 </div>
                 <br>
-        </div>
+            </div>
     </div>
+</div>
+<h2 th:text="${nothingFound}" style="color: red"></h2>
+<br>
+<p>Search by Name</p>
+<form th:action="@{/search/name}" method="post">
+    <input type="text" th:name="itemName">
+    <button type="submit">Search</button>
+</form>
+<br>
+<div th:if="${not #lists.isEmpty(testHits)}">
+    <h4>Found Items:</h4><p th:text="${testTotalHitCount}" style="padding-left: 30px"></p>
+</div>
+<div th:if="${#lists.isEmpty(testHits)}">
+    <p th:text="${noItemsFound}" style="color:red;"></p>
+</div>
+<div class="container">
+        <tr th:each="foundItem : ${testHits}">
+            <div class="card" style="width: 18rem; text-align:center; display:inline-block;">
+                <img th:src="${foundItem.picLink}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${foundItem.itemName}"></h5>
+                    <p class="card-text" th:text="${foundItem.itemDesc}"></p>
+                    <p class="card-text" th:text="${foundItem.itemPrice} + '$'"></p>
+                    <a th:href="@{/store/item/view/{itemId}(itemId=${foundItem.itemId})}" class="btn btn-primary">Take a look</a>
+                    <br>
+                </div>
+                <br>
+            </div>
 </div>
 </body>
 </html>

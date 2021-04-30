@@ -1,0 +1,9 @@
+<property name="hibernate.search.backend.hosts"
+          value="localhost:9200"/>
+<property name="hibernate.search.backend.protocol"
+          value="https"/>
+<property name="hibernate.search.backend.username"
+          value="ironman"/>
+<property name="hibernate.search.backend.password"
+          value="j@rV1s"/>
+
