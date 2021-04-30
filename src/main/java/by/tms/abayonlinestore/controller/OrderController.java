@@ -48,10 +48,9 @@ public class OrderController {
     public ModelAndView postOrderPage(@Valid @ModelAttribute("newOrder")Order newOrder,
                                       BindingResult bindingResult, ModelAndView modelAndView,
                                       HttpSession httpSession) {
-//        if(bindingResult.hasErrors()) {
-//            modelAndView.setViewName("redirect:/order");
-//            return modelAndView;
-//        } else {
+        if(bindingResult.hasErrors()) {
+            modelAndView.setViewName("order");
+        }
             Order order = new Order();
             order.setOrderedBy(newOrder.getOrderedBy());
             order.setMobilePhone(newOrder.getMobilePhone());

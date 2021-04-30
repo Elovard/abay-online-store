@@ -19,20 +19,20 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderId;
 
-//    @NotNull
-//    @Size(min = 2, message = "Typo in name!")
+    @NotBlank
+    @Size(min = 2, message = "Typo in name!")
     private String orderedBy;
 
-//    @NotNull
-//    @Size(min = 10, message = "Enter correct mobile number!")
+    @NotBlank
+    @Size(min = 10, message = "Enter correct mobile number!")
     private String mobilePhone;
 
-//    @NotNull
-//    @Size(min = 3, message = "Typo in city!")
+    @NotBlank
+    @Size(min = 3, message = "Typo in city!")
     private String city;
 
-//    @NotNull
-//    @Size(min = 10, message = "Check your address!")
+    @NotBlank
+    @Size(min = 10, message = "Check your address!")
     private String address;
 
 //    @NotNull

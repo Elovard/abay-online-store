@@ -8,8 +8,13 @@
 <header th:insert="_header"></header>
 <h1 style="padding-left: 30px">Welcome to aBay Store!</h1>
 <br>
-<h4 style="padding-left: 30px">New Here?<a th:href="@{/user/reg}">Registration</a></h4>
-<h4 style="padding-left: 30px">I have account!<a th:href="@{/user/auth}">Sign In</a></h4>
+<h4 style="padding-left: 30px">New Here?
+    <br>
+    <a th:href="@{/user/reg}">Registration</a></h4>
+<br>
+<h4 style="padding-left: 30px">I have account!
+    <br>
+    <a th:href="@{/user/auth}">Sign In</a></h4>
 <br>
 <a th:href="@{/store}" class="btn btn-primary">Let's go on shopping spree!</a>
 </body>

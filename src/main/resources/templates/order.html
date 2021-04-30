@@ -34,7 +34,7 @@
         <div class="mb-3">
             <label class="form-label">Your name</label>
             <input type="text" class="form-control" th:field="*{orderedBy}">
-            <p style="color: red" th:if="${#fields.hasErrors('orderedBy')}" th:errors="*{orderedBy}">Error</p>
+            <p style="color: red" th:if="${#fields.hasErrors('orderedBy')}" th:errors="*{orderedBy}"></p>
         </div>
         <div class="mb-3">
             <label class="form-label">Your phone</label>
@@ -63,8 +63,8 @@
         </div>
         <div class="mb-3">
             <label class="form-label">CC CVV</label>
-            <input type="text" class="form-control" th:field="*{ccExpiration}">
-            <p style="color: red" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}"></p>
+            <input type="text" class="form-control" th:field="*{ccCVV}">
+            <p style="color: red" th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccExpiration}"></p>
         </div>
         <button type="submit" class="btn btn-primary">Place order</button>
     </form>
