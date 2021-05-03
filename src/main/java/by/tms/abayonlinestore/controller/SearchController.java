@@ -69,7 +69,7 @@ public class SearchController {
         long totalHitCount = searchResult.total().hitCount();
         List<Item> hits = searchResult.hits();
 
-        List<Item> hits2 = searchSession.search(Item.class) // check
+        List<Item> hits2 = searchSession.search(Item.class)
                 .where(f -> f.match()
                         .fields("itemName", "itemDesc")
                         .matching(itemName))

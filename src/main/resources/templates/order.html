@@ -30,6 +30,7 @@
 
 <div th:if="${not #lists.isEmpty(cartItems)}">
 <div class="container" style="text-align: -webkit-center">
+    <h3 style="padding-left: 50px">Order Form</h3>
     <form th:action="@{/order}" th:object="${newOrder}" method="post">
         <div class="mb-3">
             <label class="form-label">Your name</label>
