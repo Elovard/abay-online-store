@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 @Controller
@@ -42,32 +44,35 @@ public class OrderController {
         return modelAndView;
     }
 
-    Logger log;
-
     @PostMapping
-    public ModelAndView postOrderPage(@Valid @ModelAttribute("newOrder")Order newOrder,
+    public ModelAndView postOrderPage(@ModelAttribute("newOrder") @Valid Order newOrder,
                                       BindingResult bindingResult, ModelAndView modelAndView,
                                       HttpSession httpSession) {
-        if(bindingResult.hasErrors()) {
-            modelAndView.setViewName("order");
-        }
-            Order order = new Order();
-            order.setOrderedBy(newOrder.getOrderedBy());
-            order.setMobilePhone(newOrder.getMobilePhone());
-            order.setAddress(newOrder.getAddress());
-            order.setCity(newOrder.getCity());
-            order.setAddress(newOrder.getAddress());
-            order.setCreditCardNumber(newOrder.getCreditCardNumber());
-            order.setCcExpiration(newOrder.getCcExpiration());
-            order.setCcCVV(newOrder.getCcCVV());
-            order.setCreatedAt(LocalDateTime.now());
-            order.setOrderStatus(OrderStatus.UNDERWAY);
-            orderService.placeOrder(order);
-            Cart cart = (Cart) httpSession.getAttribute("cart");
-            cart.removeAllItems();
-            modelAndView.setViewName("redirect:/order/success");
-            return modelAndView;
-        }
+       if(bindingResult.hasErrors()) {
+           Cart cart = (Cart)httpSession.getAttribute("cart");
+           modelAndView.addObject("cartItems", cart.getAllItems());
+           modelAndView.addObject("totalPrice", cart.getTotalPrice());
+           modelAndView.setViewName("order");
+       } else {
+           Order order = new Order();
+           order.setOrderedBy(newOrder.getOrderedBy());
+           order.setMobilePhone(newOrder.getMobilePhone());
+           order.setAddress(newOrder.getAddress());
+           order.setCity(newOrder.getCity());
+           order.setAddress(newOrder.getAddress());
+           order.setCreditCardNumber(newOrder.getCreditCardNumber());
+           order.setCcExpiration(newOrder.getCcExpiration());
+           order.setCcCVV(newOrder.getCcCVV());
+           order.setCreatedAt(LocalDateTime.now());
+           order.setOrderStatus(OrderStatus.UNDERWAY);
+           orderService.placeOrder(order);
+           Cart cart = (Cart) httpSession.getAttribute("cart");
+           cart.removeAllItems();
+           modelAndView.setViewName("redirect:/order/success");
+       }
+       return modelAndView;
+    }
+
 
 
 

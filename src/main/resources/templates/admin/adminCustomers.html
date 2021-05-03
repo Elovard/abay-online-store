@@ -8,6 +8,7 @@
 <div th:include="_header"></div>
 <h3 style="padding-left: 30px">Customers:</h3>
 <div class="container">
+    <br>
     <div th:if="${not #lists.isEmpty(users)}">
             <ol>
                 <li th:each="user : ${users}"><p th:text="${user.getUsername()}"></p></li>

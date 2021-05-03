@@ -34,37 +34,37 @@
         <div class="mb-3">
             <label class="form-label">Your name</label>
             <input type="text" class="form-control" th:field="*{orderedBy}">
-            <p style="color: red" th:if="${#fields.hasErrors('orderedBy')}" th:errors="*{orderedBy}"></p>
+            <div th:errors="*{orderedBy}" class="error" style="color: red"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Your phone</label>
             <input type="text" class="form-control" th:field="*{mobilePhone}">
-            <p style="color: red" th:if="${#fields.hasErrors('mobilePhone')}" th:errors="*{mobilePhone}"></p>
+            <div th:errors="*{mobilePhone}" class="error" style="color: red"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Your city</label>
             <input type="text" class="form-control" th:field="*{city}">
-            <p style="color: red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p>
+            <div th:errors="*{city}" class="error" style="color: red"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Your address</label>
             <input type="text" class="form-control" th:field="*{address}">
-            <p style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+            <div th:errors="*{address}" class="error" style="color: red"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Credit Card Number</label>
             <input type="text" class="form-control" th:field="*{creditCardNumber}">
-            <p style="color: red" th:if="${#fields.hasErrors('creditCardNumber')}" th:errors="*{creditCardNumber}"></p>
+            <div th:errors="*{creditCardNumber}" class="error" style="color: red"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">CC Expiration Date</label>
             <input type="text" class="form-control" th:field="*{ccExpiration}">
-            <p style="color: red" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}"></p>
+            <div th:errors="*{ccExpiration}" class="error" style="color: red"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">CC CVV</label>
             <input type="text" class="form-control" th:field="*{ccCVV}">
-            <p style="color: red" th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccExpiration}"></p>
+            <div th:errors="*{ccCVV}" class="error" style="color: red"></div>
         </div>
         <button type="submit" class="btn btn-primary">Place order</button>
     </form>

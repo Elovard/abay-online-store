@@ -10,6 +10,7 @@
 
 <div class="container">
     <div th:if="${not #lists.isEmpty(cartItems)}">
+        <br>
         <h2>Your cart:</h2>
             <tr th:each="item : ${cartItems}">
                 <td><div class="card-body">

@@ -20,31 +20,31 @@ public class Order {
     private long orderId;
 
     @NotBlank
-    @Size(min = 2, message = "Typo in name!")
+    @Size(min = 2, message = "Minimum 2 symbols!")
     private String orderedBy;
 
     @NotBlank
-    @Size(min = 10, message = "Enter correct mobile number!")
+    @Pattern(regexp = "[+]{1}[0-9]{12}", message = "Check mobile number!")
     private String mobilePhone;
 
     @NotBlank
-    @Size(min = 3, message = "Typo in city!")
+    @Size(min = 3, message = "Check city!")
     private String city;
 
     @NotBlank
     @Size(min = 10, message = "Check your address!")
     private String address;
 
-//    @NotNull
-//    @CreditCardNumber(message = "Incorrect credit card number!")
+    @NotBlank
+    @Size(min = 16, max = 16, message = "Incorrect credit card number!")
     private String creditCardNumber;
 
-//    @NotNull
-//    @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$",
-//            message="Must be formatted MM/YY")
+    @NotNull
+    @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$",
+            message="Must be formatted MM/YY")
     private String ccExpiration;
-//    @NotNull
-//    @Digits(integer=3, fraction=0, message="Invalid CVV")
+    @NotNull
+    @Digits(integer=3, fraction=0, message="Invalid CVV")
     private String ccCVV;
 
     private LocalDateTime createdAt;

@@ -2,7 +2,7 @@ insert into users (username, password) values ('admin', '$2y$10$eVSnMBVnhu2FqA1t
 insert into user_role (user_id, roles) values (1, 'ROLE_ADMIN');
 
 insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
-values ( default, 'Brand new mobile phone for fair price', 'Mobile Phone', 49.99, 'https://im0-tub-by.yandex.net/i?id=d0ae8f1c3cc9e4b6058ffd933aefe058&n=13', 'ELECTRONIC' );
+values ( default, 'Brand new mobile phone for fair price', 'Mobile Phone', 499.99, 'https://1.bp.blogspot.com/-HBmH6W1c3hM/X8Re9ons9aI/AAAAAAAADSg/OH_vEksROsc2Oi9hipVYdwj2yzepNbqRQCLcBGAsYHQ/s16000/iphone-12-release-date-specs-prices.jpg', 'ELECTRONIC' );
 
 insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
 values ( default, 'Hot, tasty and good drink', 'Chinese Tea', 14.99, 'https://im0-tub-by.yandex.net/i?id=92a5b4b09dac43d5db61e818a4af870b&n=13', 'FOOD' );
@@ -29,4 +29,34 @@ insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CAT
 values ( default, 'A must for every cold winter and alpinism', 'Ice Ax', 35.99, 'https://robinzon.by/upload/iblock/8be/ledorub_singingrock_edge_54_sm.jpg', 'INSTRUMENTS' );
 
 insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
-values ( default, 'Perfect gaming headset for virtual battles', 'Headphones XYZ-99', 23.99, 'https://shop.by/images/oklick_hs_l500g_toxic_1.jpg', 'ELECTRONIC' )
+values ( default, 'Perfect gaming headset for virtual battles', 'Headphones XYZ-99', 23.99, 'https://shop.by/images/oklick_hs_l500g_toxic_1.jpg', 'ELECTRONIC' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Healthy and tasty dried fruits!', 'Dried Bananas', 7.99, 'https://cdn.shopify.com/s/files/1/0063/3818/3250/products/Screen_Shot_2019-05-01_at_9.54.26_AM_1296x.png?v=1556746335', 'FOOD' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Perfect snack for smart people', 'Dried Bananas', 12.99, 'https://pro2-bar-s3-cdn-cf6.myportfolio.com/e5a617551dd684f4ce063d210afe49ad/a6ae52b061b15190e1788b40_rw_1200.jpg?h=5621f0f390a6c2afe78418c09926725c', 'FOOD' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Unique performance and video quality for hard battles', 'GeForce RTX 2080', 799.99, 'https://www.asushit.com/image/cache/catalog/goods/my/4580/44_1500-664x664.jpg', 'ELECTRONIC' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'A must for music lovers. Quality and modern style', 'AirPods PRO', 123.99, 'http://ae01.alicdn.com/kf/HTB1kNOJU9zqK1RjSZFpq6ykSXXas/AKBNSTED-Airpods-Apple-AirPods.jpg', 'ELECTRONIC' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'German quality. Handy and powerful', 'Powerful Drill Bosch', 49.99, 'https://im0-tub-by.yandex.net/i?id=d95fa6b2af3ab6e8c0ff2c2ad5ec633a&n=13', 'INSTRUMENTS' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'You live outside the city? You definitely need one. Accurate and strong', 'STIHL Chainsaw', 132.99, 'https://im0-tub-by.yandex.net/i?id=634223ffa0b61f44328f279a8762f799&n=13', 'INSTRUMENTS' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Your new best friend', 'Soft Avocado', 28.99, 'https://images.by.prom.st/174285459_w640_h640_plyushevaya-igrushka-avokado.jpg', 'TOY' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Well-known card game for family.', 'UNO', 8.99, 'https://i.siteapi.org/qXz3sZnmI-yjD_gfEHoREazDcuU=/fit-in/1024x768/center/top/0a9034a58151a23.s.siteapi.org/img/5e6390d34e8999938f4a099c1dd69953b8fc9fb5.jpg', 'TOY' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Criminal drama about mafia in New York', 'The Godfather Book', 15.99, 'https://im0-tub-by.yandex.net/i?id=35ab3925e6995ad44da915720aa67173&n=13', 'BOOKS' );
+
+insert into items (ITEM_ID, ITEM_DESC, ITEM_NAME, ITEM_PRICE, PIC_LINK, ITEM_CATEGORY)
+values ( default, 'Want to learn Java? You need this great book!', 'HeadFirst Java', 17.99, 'https://www.kv.by/sites/default/files/pictures/userpictures/2019/04/15/2359/ris._2.jpg', 'BOOKS' );

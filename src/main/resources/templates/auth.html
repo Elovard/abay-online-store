@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="UTF-8">
     <title>Auth to aBay</title>
 </head>
 <body>
 <div th:include="_header"></div>
+<h1 style="padding-left: 50px">Authorization Page</h1>
+<br>
+
+<div sec:authorize="isAuthenticated()">
+    <br>
+    <h3 style="color: red; padding-left: 30px">You have already authorized!</h3>
+    <a href="/store" style="padding-left: 45px">Store</a>
+    <a href="/search" style="padding-left: 45px">Search Items</a>
+</div>
+
 <div class="container" style="text-align: -webkit-center">
     <div th:if="${error}" style="color: red">
         Invalid username and password.
@@ -14,7 +26,8 @@
         You have been logged out.
     </div>
 
-    <form th:action="@{/user/auth}" method="post">
+    <div sec:authorize="!isAuthenticated()">
+    <form th:action="@{/user/auth}" method="post" style="margin-top: 100px">
         <div class="mb-3">
             <label class="form-label">Username</label>
             <input type="text" name="username" class="form-control" placeholder="username">
@@ -25,6 +38,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    </div>
 </div>
 </body>
 </html>

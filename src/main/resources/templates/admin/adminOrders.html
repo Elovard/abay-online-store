@@ -6,9 +6,15 @@
 </head>
 <body>
 <div th:include="_header"></div>
-<h3>List of Orders:</h3>
+
+<div th:if="${#lists.isEmpty(orders)}">
+    <br>
+    <h3 style="padding-left: 30px">No orders. For now...</h3>
+</div>
+
 <div class="container">
     <div th:if="${not #lists.isEmpty(orders)}">
+        <h3>List of Orders:</h3>
         <table border="1" cellspacing="1">
             <tr><th>OrderID</th>
                 <th>Ordered By</th>
