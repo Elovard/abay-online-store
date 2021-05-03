@@ -1,6 +1,19 @@
 <h1>TeachMeSkills diploma project by Andrey 'Elovard' Dydzik<h1>
 
 ### A simple version of online shop, which contains basic registration, items, cart, full-text search, order and admin panel.
+---
+
+### <h2>Used Technologies:<h2>
+### Java 8
+### Spring Boot
+### Spring Security
+### Thymeleaf
+### H2 Database
+### Lombok
+### Hibernate Search (elasticsearch)
+### Hibernate Validator
+### Validation Api
+---
 
 ### Credentials for admin: 
 ### **login: admin    password: password**
