@@ -3,7 +3,7 @@
 ### A simple version of online shop, which contains basic registration, items, cart, full-text search, order and admin panel.
 ---
 
-### Used Technologies:
+### <h2>Used Technologies:<h2>
 ### Java 8
 ### Spring Boot
 ### Spring Security
